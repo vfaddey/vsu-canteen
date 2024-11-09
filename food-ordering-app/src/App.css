@@ -1,0 +1,29 @@
+
+html, body, #root, .app-container {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: #1a1a1a;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
+}
+
+.layout-content {
+  width: 100%;
+  /*max-width: 1200px;*/
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.layout-content {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f0f2f5;
+}
