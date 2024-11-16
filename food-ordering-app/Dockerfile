@@ -21,6 +21,5 @@ COPY ssl/fullchain.pem /etc/nginx/ssl/fullchain.pem
 COPY ssl/privkey.pem /etc/nginx/ssl/privkey.pem
 
 EXPOSE 80
-EXPOSE 443
 
 CMD ["nginx", "-g", "daemon off;"]
