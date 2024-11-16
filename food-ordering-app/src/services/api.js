@@ -1,4 +1,4 @@
-const API_URL = "http://localhost";
+const API_URL = "http://localhost:8000";
 
 export async function fetchDishes() {
     const response = await fetch(`${API_URL}/dishes`);
