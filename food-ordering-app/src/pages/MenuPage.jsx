@@ -17,7 +17,6 @@ const MenuPage = () => {
         fetchDishes().then(data => setDishes(data));
     }, []);
 
-    // Фильтрация блюд по дню и категории
     const getDishesByDayAndCategory = (day, category) => {
         return dishes.filter(dish => dish.day === day && dish.category === category);
     };

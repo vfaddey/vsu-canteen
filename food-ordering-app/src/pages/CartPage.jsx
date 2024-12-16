@@ -8,9 +8,12 @@ import OrderConfirmationPage from './OrderConfirmationPage';
 
 const { Content } = Layout;
 
+import PaymentPage from './PaymentPage';
+
 const CartPage = () => {
     const { cartItems, removeFromCart, clearCart } = useCart();
     const [order, setOrder] = useState(null);
+    const [redirectToPayment, setRedirectToPayment] = useState(false);
     const navigate = useNavigate();
 
     const handlePlaceOrder = async () => {
@@ -20,10 +23,22 @@ const CartPage = () => {
             clearCart();
             setOrder(newOrder);
             message.success("Ваш заказ успешно оформлен!");
+            // Переход на страницу оплаты с передачей данных заказа
+            navigate('/payment', { state: { order: newOrder } });
         } catch (error) {
             message.error("Ошибка при оформлении заказа. Попробуйте снова.");
         }
     };
+
+
+
+    if (redirectToPayment) {
+        return (
+            <PaymentPage
+                onPaymentComplete={() => navigate('/order-confirmation', { state: { order } })}
+            />
+        );
+    }
 
     if (order) {
         return <OrderConfirmationPage order={order} />;
@@ -61,5 +76,6 @@ const CartPage = () => {
         </Layout>
     );
 };
+
 
 export default CartPage;
